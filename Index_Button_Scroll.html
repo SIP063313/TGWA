@@ -1,0 +1,1240 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echoes of Sacrifice</title>
+
+    <style>
+
+        :root {
+            --primary-color: #003153;
+	    --header-color: #555555;
+            --secondary-color: #F4A261;
+            --bg-color: #f9f7f1;
+            --text-color: #333;
+            --border-color: #ccc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--primary-color);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        h1 {
+            color: var(--header-color);
+            margin-bottom: 5px;
+            font-size: 2.5rem;
+        }
+
+        p.subtitle {
+         
+	    font-style: italic;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .search-container {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        #searchInput {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 4px;
+            background-color: #fcfcfc;
+        }
+
+        .roll-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1rem;
+        }
+
+        .roll-table th, .roll-table td {
+            text-align: left;
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .roll-table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .roll-table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .rank {
+            color: var(--primary-color);
+        }
+
+        .notes {
+            color: #666;
+            font-style: italic;
+        }
+
+        .table-scroll-wrapper {
+            max-height: 70vh;
+            overflow-y: auto;
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            h1 { font-size: 1.8rem; }
+            .roll-table th, .roll-table td {
+                padding: 8px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; border: none; width: 100%; max-width: 100%; }
+            #searchInput { display: none; }
+            .roll-table th { background-color: #ddd !important; color: black !important; z-index: 0; }
+            .table-scroll-wrapper { max-height: none !important; overflow: visible !important; }
+        }
+
+        dialog {
+            width: 800px;
+            max-width: 90%;
+            height: 600px;
+            max-height: 90%;
+            padding: 20px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <header style="background-image: url('JLS_2014_WWId.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 220px;">
+<!--        <h1>Echoes of Sacrifice 1914-1918</h1>  -->
+       
+<!-- <p class="subtitle"><strong>For Your Tomorrow, We Gave Our Today</strong></p> -->
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search by campaign, name, rank, or regiment...">
+    </div>
+
+    <p>Click  
+        <a href="https://umap.openstreetmap.fr/en/map/john-lyon-school-wwi_1431668#6/50.999929/1.999512" target="_blank">Sanctuaries 	of Sacrifice</a> to view Commemoration sites of Old Lyonians worldwide. Use +/- to zoom.
+    </p>
+
+    <p>Click     
+        <a href="9K2hXdW4-Research into victims of WW1.pdf" target="_blank">The Lyonian Daily</a> (The Great War edition). Part of 	John Lyon School's 2014 Project.
+    </p>
+
+    <div class="table-scroll-wrapper">
+    <table class="roll-table" id="honourTable">
+        <thead>
+	<script>
+		const File_Location = "C:/Users/sipag/OneDrive/Documents/Scott_Aug_2026"
+	</script>
+
+            <tr>
+                <th style="width: 14%">Name</th>
+                <th style="width: 6%">Rank</th>
+                <th style="width: 15%">Regiment/Unit</th>
+		<th style="width: 3%">Age</th>
+                <th style="width: 15%; text-align:center;">Date</th>
+                <th style="width: 11%; text-align:center;">Campaign</th>
+                <th style="width: 16%; text-align:center;">Commemorated At</th>
+                <th style="width: 11%; text-align:center;">War Grave Record</th>
+                <th style="width: 10%; text-align:center;">HI Research</th>
+                <th style="width: 10%; text-align:center;">Story of Sacrifice</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td><strong>Abbati W.R</strong></td>
+                <td class="rank">2 Lt</td>
+                <td>3rd Bn, Essex R</td>
+		<td>21</td>
+                <td>07 Aug 1916</td>		
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Cowes (Kingston) Cemetery</td>
+                <td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-war-dead/casualty/2758732/abbati,-/" target="_blank" rel="noopener 				noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+                <td>
+		<div style="display: flex; justify-content:center; align-items: center;"><a href="Research Berry.docx" 				target="_blank" rel="noopener noreferrer"><img src="research.jpg" alt=" " width="35" height="auto"></a>				</div>
+		</td>
+                <td>
+		<div style="display: flex; justify-content:center; align-items: center;"><a href = "Abbati_Story.html" 				target="_blank" rel="noopener noreferrer"><img src="Tommy.jpg" alt=" " width="38" height="auto"></a>
+		</div>
+		</td>
+            	</tr>
+
+            <tr>
+                <td><strong>Asher K.J.P</strong></td>
+                <td class="rank">2 Lt</td>
+                <td>10th Bn KOYLI</td>
+		<td>21</td>
+                <td>01 July 1916</td>
+                <td>Western Front</td>
+                <td class="notes">Norfolk Cemetery, Becordel-Becourt; I. B. 87A</td>
+                <td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/39370/k-j-p-asher/" 					target="_blank" rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td>
+		<div style="display: flex; justify-content:center; align-items: center;"><a href="Research Berry.docx" 				target="_blank" rel="noopener noreferrer"><img src="research.jpg" alt=" " width="35" height="auto"></a>				</div>
+		</td>
+
+                <td>
+		<div style="display: flex; justify-content:center; align-items: center;"><a href="Asherkjp.html" target="_blank" 			rel="noopener noreferrer"><img src="Tommy.jpg" alt=" " width="38" height="auto"></a>
+		</div>
+		</td>
+
+            </tr>
+
+            <tr>
+                <td><strong>Ashford R.E.C</strong></td>
+                <td class="rank">Sgt</td>
+                <td>1/28 Bn AR</td>
+		<td>23</td>
+                <td>30 Oct 1917</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Tyne Cot Memorial to the Missing; Panel 153</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-war-dead/casualty/846396/ashford,-reginald-edwin-cecil/" target="_blank" 			rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td class="Details">
+                    <a href="C:\Users\sipag\OneDrive\Documents\Scott_July_2026\Research Berry.docx">Research</a>
+                </td>
+                <td><button onclick="myDialog1.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Bates A.J.E</strong></td>
+                <td class="rank">2 Lt</td>
+                <td>RE</td>
+		<td>23</td>
+                <td>30 July 1917</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Chorleywood (Christ Church) Churchyard</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-war-dead/casualty/364529/bates,-arthur-james-edmund/" target="_blank" 			rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td class="Details">
+                    <a href="C:\Users\sipag\OneDrive\Documents\Scott_July_2026\Research Berry.docx">Research</a>
+                </td>
+                <td><button onclick="myDialog1.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Beatty A.H.W</strong></td>
+                <td class="rank">Pvt</td>
+                <td>19th Bn Manch</td>
+		<td>29</td>
+                <td>31 July 1917</td>		
+                <td>Western Front</td>
+                <td class="notes">Ypres (Menin Gate) Memorial; Panel 53</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-war-dead/casualty/927174/beatty,-arthur-harry-wolseley/" target="_blank" 			rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td class="Details">
+                    <a href="C:\Users\sipag\OneDrive\Documents\Scott_July_2026\Research Berry.docx">Research</a>
+                </td>
+                <td class="Details">
+                    <a href="Beattie.html" target="_blank" rel="noopener noreferrer">My Story</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td><strong>Berry H.H</strong></td>
+                <td class="rank">Lt</td>
+                <td>RAF</td>
+		<td>23</td>
+                <td>27 Sept 1918</td>
+                <td>Western Front</td>
+                <td class="notes">Southend-on-Sea (Sutton Road) Cemetery</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/357344/hedley-herbert-berry/" 			target="_blank" rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td><strong>Boreham H.P</strong></td>
+                <td class="rank">Lt</td>
+                <td>Middlesex Regiment 18th Bn</td>
+		<td>28</td>
+                <td>16 Apr 1918</td>
+                <td>Western Front</td>
+                <td class="notes">Ploegsteert Memorial</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-war-dead/casualty/874751/boreham,-harry-pendry/" target="_blank" 				rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td><strong>Bradberry R.W</strong></td>
+                <td class="rank">LB</td>
+                <td>Royal Garrison Artillery, 301st Siege Bty</td>
+		<td>33</td>
+                <td>03 Dec 1917</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Bois-Guillaume Communal Cemetery Extension</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/121566/russel-william-bradberry/" 			target="_blank"	rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Brown C.J.W</strong></td>
+                <td class="rank">Pvt</td>
+                <td>Cameron Highlanders 6th Bn</td>
+		<td>19</td>
+                <td>31 July 1917</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Ypres (Menin Gate) Memorial, Panel 38</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-war-dead/casualty/929392/brown,-charles-john-william/" 					target="_blank"	rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Butler B.G</strong></td>
+                <td class="rank">Midn.</td>
+                <td>Royal Navy Reserve</td>
+		<td>21</td>
+                <td>03 Feb 1915</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Chatham Naval Memorial</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-war-dead/casualty/4003755/butler,-basil-george/" 						target="_blank"	rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Candlin T.A</strong></td>
+                <td class="rank">Pvt</td>
+                <td>Royal Buckinghamshire Hussars, Machine Gun Section</td>
+		<td>26</td>
+                <td>05 Oct 1916</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Pinner (Paines) Lane Cemetery</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-war-dead/casualty/388042/candlin,-thomas-albert/" 						target="_blank"	rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Chatham G.H</strong></td>
+                <td class="rank">2 Lt</td>
+                <td>Royal Fusiliers 10th Bn</td>
+		<td>29</td>
+                <td>23 Nov 1916</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Thiepval Memorial, Pier and Face 8 C 9 A and 16 A</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/1543343/george-henry-chatham/" 			target="_blank"	rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Clowes W.H</strong></td>
+                <td class="rank">Sgt</td>
+                <td>Middlesex Regiment, 13th Bn</td>
+		<td>27</td>
+                <td>04 Apr 1917</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Harrow Cemetery</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/75470564/william-henry-john-				clowes/" target="_blank"	rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" 				height="auto"></a>
+                	</div>
+		</td>
+
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Cram H.A</strong></td>
+                <td class="rank">2 Lt</td>
+                <td>King's Royal Rifle Corps 16th Bn</td>
+		<td>27</td>
+                <td>15 Apr 1918</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Klein-Vierstraat British Cemetery, VI. A. 22</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-war-dead/casualty/455349/cram,-hubert-arthur/" target="_blank"				rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Densham W.D</strong></td>
+                <td class="rank">Pvt</td>
+                <td>Gordon Highlanders 1st/7th Bn</td>
+		<td>22</td>
+                <td>23 Apr 1917</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Arras Memorial, Bay 8 and 9</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/747193/william-david-densham/" 			target="_blank" rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Ellis R.L.S</strong></td>
+                <td class="rank">Pvt</td>
+                <td>Wiltshire Regiment 5th Bn</td>
+		<td>19</td>
+                <td>20 Sept 1915</td>
+                <td class="Campaign">Dardanelles</td>
+                <td class="notes">East Mudros Military Cemetery</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/626124/raynal-lucas-sordes-ellis/" 			target="_blank" rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Fillmore F.A</strong></td>
+                <td class="rank">Pvt</td>
+                <td>Honourable Artillery Company 1st Bn</td>
+		<td>22</td>
+                <td>13 Nov 1916</td>
+                <td class="Campaign">Dardanelles</td>
+                <td class="notes">Thiepval Memorial, Pier and Face 8 A </td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/751780/frederick-arthur-fillmore/" 			target="_blank" rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Fryer E.H</strong></td>
+                <td class="rank">Lt</td>
+                <td>Lancashire Fusiliers 4th Bn. attd. 2nd/5th Bn</td>
+		<td>20</td>
+                <td>03 Aug 1916</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Thiepval Memorial, Pier and Face 3 C and 3 D</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/750367/eric-hamilton-fryer/" 				target="_blank" rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Green E de W</strong></td>
+                <td class="rank">2 Lt</td>
+                <td>Royal West Surrey Regiment 1st Bn</td>
+		<td>19</td>
+                <td>15 Apr 1918</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Boulougne Eastern Cemetery, VII. B. 38</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/46858/eric-de-wilde-green/" 				target="_blank" rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Green T.H</strong></td>
+                <td class="rank">Sgt</td>
+                <td>Royal Fusiliers 10th Bn</td>
+		<td>31</td>
+                <td>30 Jul 1917</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Wandsworth (Earlsfield) Cemetery</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/381174/thomas-hugh-green/" 				target="_blank" rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Hamilton E.J</strong></td>
+                <td class="rank">ST2</td>
+                <td>Royal Navy, HMS Courageous</td>
+		<td>00</td>
+                <td>02 Feb 1917</td>
+                <td class="Campaign">unknown</td>
+                <td class="notes">Barking (Rippleside) Cemetery</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/356723/e-j-hamilton/" 				target="_blank" rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Heywood H</strong></td>
+                <td class="rank">Lt</td>
+                <td>Middlesex Regiment 8th Bn</td>
+		<td>27</td>
+                <td>22 Aug 1917</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Dozinghem Military Cemetery</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="" 				target="_blank" rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Higgins A</strong></td>
+                <td class="rank">Capt</td>
+                <td>Army Veterinary Corps</td>
+		<td>32</td>
+                <td>25 Aug 1918</td>
+                <td class="Campaign">Dardanelles</td>
+                <td class="notes">Doiran Military Cemetery V.H.9</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/334462/a-a-higgins/" 					target="_blank" rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Hook H.C</strong></td>
+                <td class="rank">Pvt</td>
+                <td>Bedfordshire Regiment 6th Bn</td>
+		<td>24</td>
+                <td>01 Mar 1918</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Bedford House Cemetery</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-war-dead/casualty/483301/hook,-/" 								target="_blank" rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Hook P.L</strong></td>
+                <td class="rank">Pvt</td>
+                <td>Lancashire Fusiliers 2nd/5th Bn</td>
+		<td>29</td>
+                <td>26 Sept 1917</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Tyne Cot Memorial, Panel 54 to 60</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/837145/philip-leslie-hook/" 				target="_blank" rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Joiner C</strong></td>
+                <td class="rank">Rflmn</td>
+                <td>London Regiment (Queen Victoria's Rifles), 1st/9th Bn</td>
+		<td>22</td>
+                <td>24 Apr 1915</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Ypres (Menin Gate) Memorial, Panel 54</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/1616568/charles-joiner/" 				target="_blank" rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Jordan H.S.L</strong></td>
+                <td class="rank">2 Lt</td>
+                <td>Royal Flying Corps</td>
+		<td>22</td>
+                <td>20 Aug 1917</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Wembley Old Burial Ground, H1011</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/388269/hugh-stewart-latimer-				jordan/" target="_blank" rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto">			</a>
+                	</div>
+		</td>
+
+		
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Kilburn E.N</strong></td>
+                <td class="rank">Rflmn</td>
+                <td>Rifle Bde 7th Bn</td>
+		<td>20</td>
+                <td>18 July 1917</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Kensal Green (All Souls) Cemetery, 213.6.29 (Screen Wall)</td>
+               
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-war-dead/casualty/2905793/kilburn,-edward/" target="_blank" rel="noopener 			noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto">			</a>
+                	</div>
+		</td>
+
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Lion T.E</strong></td>
+                <td class="rank">Pvt</td>
+                <td>Royal Army Medical Corps 3rd (London) Field Amb</td>
+		<td>20</td>
+                <td>28 Sept 1915</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Bethune Town Cemetery, IV E 37</td>
+                <td class="Details">
+                    <a href="https://www.cwgc.org/find-war-dead/casualty/63609/lion,-thomas-edward/" target="_blank" rel="noopener noreferrer">CWGC</a>
+                </td>
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Mason F.G.E</strong></td>
+                <td class="rank">Rflmn</td>
+                <td>London Regiment (Queen's Westminster Rifles) 1st/16th Bn</td>
+		<td>25</td>
+                <td>02 Oct 1916</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Thiepval Memorial, Pier and Face 13 C</td>
+                <td class="Details">
+                    <a href="https://www.cwgc.org/find-war-dead/casualty/805201/mason,-frederick-g./" target="_blank" rel="noopener noreferrer">CWGC</a>
+                </td>
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Muddock H</strong></td>
+                <td class="rank">Pvt</td>
+                <td>Army Service Corps, 648th M.T. Coy</td>
+		<td>00</td>
+                <td>24 Nov 1918</td>
+                <td class="Campaign">Africa</td>
+                <td class="notes">Nakuru North Cemetery</td>
+                <td class="Details">
+                    <a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/125082/h-w-muddock/" target="_blank" rel="noopener noreferrer">CWGC</a>
+                </td>
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Muddock J.M.P</strong></td>
+                <td class="rank">2 Lt</td>
+                <td>Shropshire Yeomanry</td>
+		<td>29</td>
+                <td>30 Nov 1917</td>
+                <td class="Campaign">Middle East</td>
+                <td class="notes">Jerusalem War Cemetery</td>
+                <td class="Details">
+                    <a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/647683/j-m-p-muddock/" target="_blank" rel="noopener noreferrer">CWGC</a>
+                </td>
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Oliver W</strong></td>
+                <td class="rank">Rflmn</td>
+                <td>London Regiment (London Irish Rifles) 1st/18th Bn</td>
+		<td>33</td>
+                <td>18 Nov 1916</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Vlamertinghe Military Cemetery</td>
+                <td class="Details">
+                    <a href="https://www.cwgc.org/find-war-dead/casualty/138591/oliver,-william/" target="_blank" rel="noopener noreferrer">CWGC</a>
+                </td>
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Parker A.W</strong></td>
+                <td class="rank">Pvt</td>
+                <td>Royal Fusiliers 24th Bn</td>
+		<td>39</td>
+                <td>14 Mar 1918</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Grevillers British Cemetery</td>
+                <td class="Details">
+                    <a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/290801/a-w-parker/" target="_blank" rel="noopener noreferrer">CWGC</a>
+                </td>
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Parkhouse F.M</strong></td>
+                <td class="rank">2 Lt</td>
+                <td>Middlesex Regiment 1st Bn</td>
+		<td>30</td>
+                <td>23 Apr 1918</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Heninel-Croisilles Road Cemetery</td>
+                <td class="Details">
+                    <a href="https://www.cwgc.org/find-war-dead/casualty/254688/parkhouse,-frank-mayfield/" target="_blank" rel="noopener noreferrer">CWGC</a>
+                </td>
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Patterson A.F</strong></td>
+                <td class="rank">Lt</td>
+                <td>Middlesex Regiment</td>
+		<td>35</td>
+                <td>01 July 1916</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Thiepval Memorial, Pier and Face 12D and 13B</td>
+                <td class="Details">
+                    <a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/808537/alan-foster-paterson/" target="_blank" rel="noopener noreferrer">CWGC</a>
+                </td>
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Prince C.G.M</strong></td>
+                <td class="rank">Pvt</td>
+                <td>The Queen's (Royal West Surrey Regiment) "C" Coy. 6th Bn</td>
+		<td>20</td>
+                <td>24 Aug 1918</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Meaulte Military Cemetery, G40</td>
+                <td class="Details">
+                    <a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/541927/gilbert-carlyle-mason-prince/" target="_blank" rel="noopener noreferrer">CWGC</a>
+                </td>
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Reid L.T.S</strong></td>
+                <td class="rank">Pvt</td>
+                <td>London Regiment (London Scottish) 1st/14th Bn</td>
+		<td>17</td>
+                <td>01 Nov 1914</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Pres (Menin Gate) Memorial, Panel 54</td>
+                <td class="Details">
+                    <a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/1625794/lewis-theodor-sinclair-reid/" target="_blank" rel="noopener noreferrer">CWGC</a>
+                </td>
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Sadd R.D</strong></td>
+                <td class="rank">Pvt</td>
+                <td>Honourable Artillery Company</td>
+		<td>21</td>
+                <td>14 Feb 1917</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Harrow Cemetery</td>
+                <td class="Details">
+                    <a href="https://www.cwgc.org/find-war-dead/casualty/388018/sadd,-robert-douglas/" target="_blank" rel="noopener noreferrer">CWGC</a>
+                </td>
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Slade F</strong></td>
+                <td class="rank">Rflmn</td>
+                <td>London Regiment (Queen Victoria's Rifles) "D" Coy. 1st/9th Bn</td>
+		<td>23</td>
+                <td>09 Sept 1916</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Serre Road Cemetery No.2, XV. E. 12</td>
+                <td class="Details">
+                    <a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/609882/fred-slade/" target="_blank" rel="noopener noreferrer">CWGC</a>
+                </td>
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Smith J.G.B</strong></td>
+                <td class="rank">Lt</td>
+                <td>Royal Army Medical Corps</td>
+		<td>29</td>
+                <td>15 Apr 1917</td>
+                <td class="Campaign">Dardanelles</td>
+                <td class="notes">Mikra Memorial</td>
+                <td class="Details">
+                    <a href="https://www.cwgc.org/find-war-dead/casualty/1648088/smith,-john-godfrey-bradley/" target="_blank" rel="noopener noreferrer">CWGC</a>
+                </td>
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Stearns E.G</strong></td>
+                <td class="rank">Lt</td>
+                <td>Royal Fusiliers 4th Bn</td>
+		<td>20</td>
+                <td>06 Aug 1915</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Lijssenthoek Military Cemetery, I A 2</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/149593/eric-gordon-stearns/" 			target="_blank" rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto"></a>
+                	</div>
+		</td>
+
+                <td>
+		<div style="display: flex; justify-content:center; align-items: center;"><a href="Stearns_Research.htm" 				target="_blank" rel="noopener noreferrer"><img src="research.jpg" alt=" " width="35" height="auto"></a>				</div>
+		</td>
+ 		<td>
+		<div style="display: flex; justify-content:center; align-items: center;"><a href = 						"Stearns_Story.html" target="_blank" rel="noopener noreferrer"><img src="Tommy.jpg" alt=" " width="38" 				height="auto"></a>
+		</div>
+		</td>
+
+                
+            </tr>
+
+            <tr>
+                <td><strong>Stillman J.H</strong></td>
+                <td class="rank">Pvt</td>
+                <td>North Staffordshire Regiment 12th Bn</td>
+		<td>23</td>
+                <td>30 Sept 1918</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Terlincthun British Cemetery, Wimille</td>
+                <td class="Details">
+                    <a href="https://www.cwgc.org/find-war-dead/casualty/4027342/stillman,-john-humphrey/" target="_blank" rel="noopener noreferrer">CWGC</a>
+                </td>
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Taylor J.H</strong></td>
+                <td class="rank">F/Sublt</td>
+                <td>Royal Air Force "G" Sqdn</td>
+		<td>00</td>
+                <td>17 Apr 1918</td>
+                <td class="Campaign">Dardanelles</td>
+                <td class="notes">East Mudros Military Cemetery, Greece</td>
+                <td class="Details">
+                    <a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/626607/joseph-hugh-taylor/" target="_blank" rel="noopener noreferrer">CWGC</a>
+                </td>
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Tigar G.H </strong></td>
+                <td class="rank">2 Lt</td>
+                <td>Royal Berkshire Regiment 6th Bn</td>
+		<td>21</td>
+                <td>13 Oct 1917</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Tyne Cot Memorial, Panel 105-106</td>
+                <td class="Details">
+                    <a href="https://www.cwgc.org/find-war-dead/casualty/827781/tigar,-geoffrey-herbert/" target="_blank" rel="noopener noreferrer">CWGC</a>
+                </td>
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Tigar H.W </strong></td>
+                <td class="rank">Lt</td>
+                <td>Middlesex Regiment, 3rd Bn</td>
+		<td>22</td>
+                <td>09 May 1915</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Ypres (Menin Gate) Memorial, Panel 49</td>
+                <td class="Details">
+                    <a href="https://www.cwgc.org/find-war-dead/casualty/1626535/tigar,-harold-walter/" target="_blank" rel="noopener noreferrer">CWGC</a>
+                </td>
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Turnbull H.P.M</strong></td>
+                <td class="rank">AB</td>
+                <td>Royal Navy  HMS Q20</td>
+		<td>21</td>
+                <td>29 Mar 1917</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Portsmouth Naval Memorial</td>
+                <td class="Details">
+                    <a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/3041775/hugh-percy-maclean-turnbull/" target="_blank" rel="noopener noreferrer">CWGC</a>
+                </td>
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Williams J.P </strong></td>
+                <td class="rank">Drv</td>
+                <td>Honourable Artillery Company (HAC)</td>
+		<td>23</td>
+                <td>02 Jun 1917</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">HARROW WEALD (ALL SAINTS) CHURCHYARD EXTENSION</td>
+                <td class="Details">
+                    <a href="https://www.cwgc.org/find-war-dead/casualty/388037/williams,-/" target="_blank" rel="noopener noreferrer">CWGC</a>
+                </td>
+                <td class="Details">
+                    <a href="C:\Users\sipag\OneDrive\Documents\Scott_July_2026\Research Berry.docx">Research</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Williamson W.R </strong></td>
+                <td class="rank">AB</td>
+                <td>Royal Navy Volunteer Reserve (RNVR) Drake Bn RN Div</td>
+		<td>19</td>
+                <td>25 May 1915</td>
+                <td class="Campaign">Dardanelles</td>
+                <td class="notes">Helles Memorial, Panel 8-16</td>
+                <td class="Details">
+                    <a href="https://www.cwgc.org/find-war-dead/casualty/3055333/williamson,-william-robert/" target="_blank" rel="noopener noreferrer">CWGC</a>
+                </td>
+                <td class="Details">
+                    <a href="C:\Users\sipag\OneDrive\Documents\Scott_July_2026\Research Berry.docx">Research</a>
+                </td>
+                <td><button onclick="myDialog1.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Wood A.J</strong></td>
+                <td class="rank">Pvt</td>
+                <td>Royal Fusiliers, 3rd Bn</td>
+		<td>19</td>
+                <td>14 May 1915</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Boulogne Eastern Cemetery</td>
+                <td class="Details">
+                    <a href="https://www.cwgc.org/find-records/find-war-dead/casualty-details/46532/albert-jesse-wood/" target="_blank" rel="noopener noreferrer">CWGC</a>
+                </td>
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                <td><button onclick="myDialogWilliams.showModal()">View</button></td>
+            </tr>
+
+            <tr>
+                <td><strong>Woodbridge S.G</strong></td>
+                <td class="rank">Capt</td>
+                <td>Northumberland Fusiliers</td>
+		<td>32</td>
+                <td>19 Dec 1918</td>
+                <td class="Campaign">Western Front</td>
+                <td class="notes">Harrow (St Mary) Lower Churchyard</td>
+                
+		<td class="Details">
+			<div style="display: flex; justify-content:center; align-items: center;">
+                    	<a href="https://www.cwgc.org/find-war-dead/casualty/388011/woodbridge,-/" 							target="_blank" rel="noopener noreferrer"><img src="memorial.jpg" alt=" " width="45" height="auto">				</a>
+                	</div>
+		</td>
+
+                <td class="Details">
+                    <a href="tigargh.html" target="_blank" rel="noopener noreferrer">Link</a>
+                </td>
+                
+		<td>
+		<div style="display: flex; justify-content:center; align-items: center;"><a href="Woodbridge.html" target="_blank" 			rel="noopener noreferrer"><img src="Tommy.jpg" alt=" " width="38" height="auto"></a>
+		</div>
+		</td>
+
+            </tr>
+
+        </tbody>
+    </table>
+    </div>
+    <footer style="margin-top: 30px; text-align: center; font-size: 0.9rem; color: #777;">
+
+        <p>Data sourced from the CWGC, IWM, 2014 JLS Project & private research. Last updated: July 2026.</p>
+
+        <p>For additions, corrections, deletions please contact: lyonianassociation@johnlyon.org</p>
+
+    </footer>
+
+
+    <dialog id="myDialog1">
+        <h3>Echoes of Sacrifice - His Story</h3>
+        <p>He was killed in action, age 21, on 30 October 1917 at Varlet Farm / Source Trench, Belgium</p>
+        <p>He was awarded the following medals: The British War Medal and Victory Medal</p>
+        <p>He was part of the Second Battle of Passchendaele with the Artists' Rifles, and the battalion suffered heavy casualties in the attack that day.</p>
+        <form method="dialog"><button>Close</button></form>
+    </dialog>
+
+    <dialog id="myDialogWilliams">
+        <h3>Echoes of Sacrifice - His Story</h3>
+        <p>Driver J.P. Williams (Service Number 624194) of the Honourable Artillery Company did not die in World War I; he survived the war. Service Number 624194 belongs to a soldier who was wounded in combat but survived his injuries. Because he survived, his name does not appear on the Commonwealth War Graves Commission (CWGC) rolls or any WWI casualty lists of the deceased. Instead, he was honorably discharged from the British Army due to medical unfitness caused by his wartime wounds.</p>
+        <p>The Silver War Badge: Upon his discharge, he was awarded the Silver War Badge (SWB). This was a brass medal issued to British and Commonwealth military personnel who were safely discharged due to wounds or sickness, meant to be worn on civilian clothes to show they had served honorably.</p>
+        <p>The 126th Brigade, Royal Field Artillery operated primarily on the Western Front during World War I. The brigade was originally raised as a "New Army" unit and was assigned to provide tactical artillery support for the 37th Division, arriving in France in July 1915.</p>
+        <p>In January 1917, as part of a British Army-wide reorganization, the original 126th Brigade was broken up and its batteries distributed. In early 1917, the brigade was completely reformed as an independent Army Field Artillery Brigade.</p>
+        <p>During this period, it absorbed prestigious Territorial units, specifically the 2/A and 2/B Batteries of the Honourable Artillery Company (HAC). It operated heavily in the Ypres Salient during the Battle of Passchendaele, and later participated in holding the line against the German Spring Offensive of March 1918.</p>
+        <form method="dialog"><button>Close</button></form>
+    </dialog>
+
+    <script>
+        // SEARCH FUNCTION - This was MISSING from your original file!
+        function filterTable() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toUpperCase().trim();
+            const table = document.getElementById('honourTable');
+            const tbody = table.querySelector('tbody');
+            const rows = tbody.querySelectorAll('tr');
+
+            rows.forEach(row => {
+                const text = row.textContent.toUpperCase();
+                row.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+
+</body>
+</html>

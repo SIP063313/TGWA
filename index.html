@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Welcome - The Great War Archive</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Reset & Base Styles */
+        html, body {
+            height: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Full Page Background */
+        .page-wrapper {
+            position: relative;
+            min-height: 100vh;
+            background-image: url('JLS_Landing_Background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Dark Overlay for Text Readability */
+        .page-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        /* Container for Content */
+        .content-container {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styles - Transparent (background image visible) */
+        header {
+            padding: 2rem 5%;
+            text-align: center;
+            color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Flex container for logo + heading */
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        /* Small logo image next to heading */
+        .header-logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content - Symmetrical 4 Card Layout */
+        main {
+            flex: 1;
+            padding: 4rem 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            width: 100%;
+            max-width: 1400px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-title {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .card-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Footer Styles - Transparent (background image visible) */
+        footer {
+            padding: 2rem 5%;
+            text-align: center;
+            color: white;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Desktop Styles (Default) */
+        @media (min-width: 1200px) {
+            header h1 {
+                font-size: 3rem;
+            }
+
+            .header-logo {
+                width: 72px;
+                height: 72px;
+            }
+
+            .cards-grid {
+                gap: 2.5rem;
+            }
+
+            .card-image {
+                height: 250px;
+            }
+        }
+
+        /* Tablet Styles (iPad) */
+        @media (max-width: 1199px) and (min-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.5rem;
+                padding: 0 2rem;
+            }
+
+            .card-image {
+                height: 180px;
+            }
+
+            .card-title {
+                font-size: 1.1rem;
+            }
+
+            .card-description {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Landscape iPad Pro */
+        @media (max-width: 1199px) and (min-width: 1024px) {
+            main {
+                padding: 3rem 5%;
+            }
+        }
+
+        /* Portrait iPad / Small Tablets */
+        @media (max-width: 1023px) and (min-width: 768px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .card-image {
+                height: 200px;
+            }
+        }
+
+        /* Mobile Styles (iPhone) */
+        @media (max-width: 767px) {
+            header {
+                padding: 1.5rem 5%;
+            }
+
+            header h1 {
+                font-size: 1.75rem;
+            }
+
+            header p {
+                font-size: 0.95rem;
+            }
+
+            .header-inner {
+                gap: 1rem;
+            }
+
+            .header-logo {
+                width: 44px;
+                height: 44px;
+            }
+
+            main {
+                padding: 2rem 5%;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0;
+            }
+
+            .card {
+                width: 100%;
+            }
+
+            .card-image {
+                height: 220px;
+            }
+
+            .card-title {
+                font-size: 1.2rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .card-description {
+                font-size: 0.9rem;
+            }
+
+            footer {
+                padding: 1.5rem 5%;
+            }
+
+            footer p {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Very Small Screens */
+        @media (max-width: 375px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .header-logo {
+                width: 36px;
+                height: 36px;
+            }
+
+            .card-title {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="content-container">
+            <!-- Header -->
+            <header>
+                <div class="header-inner">
+                    <img src="JLS_Header_Trans.png" alt="Logo" style="width: 20%; height: auto; class="header-logo">
+                    <h1>The Great War Archives</h1>
+                </div>
+		<p></p>
+                <p>Welcome to an exceptional experience. Discover what we have to offer.</p>
+            </header>
+
+            <!-- Main Content -->
+            <main>
+                <div class="cards-grid">
+                    <!-- Card 1 -->
+                    <a href="https://umap.openstreetmap.fr/en/map/john-lyon-school-wwi_1431668#6/50.999929/1.999512" target="_blank" class="card">
+                        <img src="JLS_Landing_Map.png" alt="Card 1" class="card-image">
+                        <div class="card-content">
+                            <h2 class="card-title">Sanctuaries of Sacrifice</h2>
+                            <p class="card-description">Discover our commemorative map</p>
+                        </div>
+                    </a>
+
+                    <!-- Card 2 -->
+                    <a href="index_archive.html" target="_blank" class="card">
+                        <img src="JLS_Records_Landing.png" alt="Card 2" class="card-image">
+                        <div class="card-content">
+                            <h2 class="card-title">Echoes of Sacrifice</h2>
+                            <p class="card-description">Experience the stories of our fallen</p>
+                        </div>
+                    </a>
+
+                    <!-- Card 3 -->
+                    <a href="JLS_2014_Project.pdf" target="_blank" class="card">
+                        <img src="JLS_2014_Landing.png" alt="Card 3" class="card-image">
+                        <div class="card-content">
+                            <h2 class="card-title">News of Sacrifice</h2>
+                            <p class="card-description">View an article from 2014</p>
+                        </div>
+                    </a>
+
+                    <!-- Card 4 -->
+                    <a href="VIDEO-2026-08-02-10-03-32.mp4" target="_blank" class="card">
+                        <img src="JLS_School_Landing.png" alt="Card 4" class="card-image">
+                        <div class="card-content">
+                            <h2 class="card-title">Pictures of Sacrifice</h2>
+                            <p class="card-description">Watch our video of commemoration</p>
+                        </div>
+                    </a>
+                </div>
+            </main>
+
+            <!-- Footer -->
+            <footer>
+		<p>For Your Tomorrow, We Gave Our Today</p>
+                <p>&copy; 2026 FlowFusion. All rights reserved.</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
