@@ -23,7 +23,7 @@
         .page-wrapper {
             position: relative;
             min-height: 100vh;
-	    background-image: url('JLS_Landing_Background.jpg');
+            background-image: url('JLS_Landing_Background.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -241,23 +241,65 @@
             }
         }
 
-        /* Tablet Styles (iPad landscape) */
+        /* Tablet Styles (iPad landscape/portrait - 5 cards on one line) */
         @media (max-width: 1199px) and (min-width: 768px) {
             .cards-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1.25rem;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 0.75rem;
+                width: 100%;
             }
 
             .card:nth-child(3) {
-                grid-column: 2 / span 1;
+                grid-column: auto;
+            }
+
+            .card {
+                transform: none !important;
+            }
+
+            .card.focal {
+                transform: none !important;
+                background: rgba(255, 255, 255, 0.15);
+                border: 2px solid rgba(255, 255, 255, 0.3);
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+            }
+
+            .card.focal:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2), 0 20px 50px rgba(0, 0, 0, 0.4);
             }
 
             .card-image {
-                height: 140px;
+                height: 100px;
             }
 
             .card.focal .card-image {
-                height: 180px;
+                height: 130px;
+            }
+
+            .card-content {
+                padding: 0.8rem;
+            }
+
+            .card.focal .card-content {
+                padding: 1rem;
+            }
+
+            .card-title {
+                font-size: 0.95rem;
+            }
+
+            .card.focal .card-title {
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+            }
+
+            .card-description {
+                font-size: 0.75rem;
+            }
+
+            .card.focal .card-description {
+                font-size: 0.85rem;
             }
         }
 
@@ -365,8 +407,8 @@
                 <div class="header-inner">
                     <img src="JLS_Header_Trans.png" alt="Logo" class="header-logo">
                     <h1>The Great War Archives</h1>
-             </div>
-		
+                </div>
+        
                 <p>Celebrating John Lyon School's 150th year the class of '76 honour our WWI alumni lost during 1914–1918. From the Somme to Gallipoli, Africa to Mesopotamia ... their names, their stories remembered.</p>
 
             </header>
