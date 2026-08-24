@@ -1,0 +1,34 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Eric Hamilton Fryer</title> <style> *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; } :root { --bg: #faf8f5; --text: #2b2926; --muted: #6b6660; --accent: #00008B; --line: #d8d4cd; } body { font-family: Georgia, 'Times New Roman', serif; background-color: var(--bg); color: var(--text); line-height: 1.8; font-size: 19px; -webkit-font-smoothing: antialiased; } .story { max-width: 850px; margin: 0 auto; padding: 80px 30px 120px; } 
+/* ---------- Title ---------- */ header { text-align: center; padding-bottom: 50px; margin-bottom: 50px; border-bottom: 1px solid var(--line); } header h1 { font-family: 'Times New Roman', 'Times', serif; font-size: 2.6em; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; } header p.author { color: var(--accent); font-size: 0.85em; text-transform: lowercase; letter-spacing: 0.15em; } /* ---------- Header Images ---------- */ header .images { margin-top: 24px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; } header img { width: 200px; max-width: 100%; height: auto; border-radius: 4px; } /* ---------- Body Text ---------- */ .story-body p { margin-bottom: 24px; text-align: justify; } .story-body p:first-of-type::first-letter { float: left; font-size: 4.5em; line-height: 0.85; font-weight: bold; padding-right: 10px; padding-top: 6px; color: var(--accent); } .story-body blockquote { margin: 30px 0; padding: 20px 28px; background: #fffefb; border-left: 4px solid var(--accent); font-style: italic; color: var(--muted); } .story-body em { font-style: italic; } .story-body strong { font-weight: 700; } /* ---------- Footer ---------- */ footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--line); } footer p { color: var(--muted); font-size: 0.85em; font-style: italic; } 
+/* ========================================================= RESPONSIVE BREAKPOINTS Mobile-first overrides applied from smallest to largest ========================================================= */ 
+/* ---- iPhone / Small phones (< 480px) ---- */ 
+@media (max-width: 480px) { .story { padding: 30px 14px 50px; } header { padding-bottom: 30px; margin-bottom: 30px; } header h1 { font-size: 1.6em; } body { font-size: 16px; line-height: 1.65; } /* Drop cap smaller on phones */ .story-body p:first-of-type::first-letter { font-size: 3.2em; padding-right: 6px; } .story-body blockquote { margin: 20px 0; padding: 14px 16px; } 
+/* Stack images vertically on very small screens */ header .images { flex-direction: column; align-items: center; gap: 12px; } header img { width: 160px; } } /* ---- Large phones / Small tablets (481px – 767px) ---- */ @media (min-width: 481px) and (max-width: 767px) { .story { padding: 40px 18px 60px; } header h1 { font-size: 2em; } body { font-size: 17px; } .story-body p { text-align: left; } .story-body p:first-of-type::first-letter { font-size: 3.8em; } } /* ---- iPad / Tablets (768px – 1023px) ---- */ @media (min-width: 768px) and (max-width: 1023px) { .story { padding: 60px 40px 80px; max-width: 700px; } body { font-size: 18px; } header h1 { font-size: 2.3em; } } /* ---- Desktop (1024px+) ---- */ @media (min-width: 1024px) { .story { max-width: 850px; } } </style> </head> <body> <main class="story">
+
+ 
+
+<header> 
+	<h1>Eric Hamilton Fryer</h1> 
+	<p class="author">b. 1896 d. 03 Aug 1916</p> 
+	<div class="images">
+	<style> .images { display: flex; justify-content: center; } </style> 
+	<img src="Fryer1.jpg" alt="Blank" width="200" height="200"> <img src="Fryer2.jpg" alt="Blank" width="200" height="200"> 
+	</div>
+</header>
+
+ 
+<section class="story-body">
+
+<blockquote>Eric Hamilton Fryer was born in Wembley in 1896 and after attending John Lyon School worked as an estate agent’s clerk before the First World War, later enlisting and serving as a lieutenant with the Lancashire Fusiliers. He was killed in France on 3 August 1916, aged about 20, reportedly being shot by a German sniper.</blockquote>  
+
+<p><strong>Civilian Life</strong> - Eric Hamilton Fryer was born in Wembley in 1896, the son of George W. and Annie J. Fryer.  After attending John Lyon School, he worked as an estate agent’s clerk.  In 1911, he was living with his family at Mentmore, Sudbury, Harrow, where his father worked as an accountant for a house furnisher. Eric had two brothers, Henry N. and George R.  Eric attended John Lyon School, and his name is recorded on the school's First World War Roll of Honour. </p>
+
+<p><strong>Military Life</strong> - He appears to have enlisted in the Honourable Artillery Company on 4 August 1914, although the research notes that the surviving evidence is not conclusive. The Commonwealth War Graves Commission records him as Lieutenant Eric Hamilton Fryer of the 4th Battalion, Lancashire Fusiliers, attached to the 2nd/5th Battalion. This is entirely feasible as many young men enlisted in a local unit first and upon receiving their commission were assigned to a unit that needed more officers.  Fryer was killed in France on 3 August 1916 in the second month of the Somme Offensive. The research from the John Lyon School 
+records that he was killed by a German sniper from the opposing 127th Württemberg Regiment. The account also records the recollection of fellow officer Captain Best Dunkley, who described Fryer as a “brother” and recorded the effect of his death on his comrades.</p>
+
+<blockquote> He was aged almost 20 at the time of his death and is commemorated on the Thiepval Memorial on the Somme. His name is also recorded on the war memorials at St John the Evangelist Church in Wembley, St Andrew's Church, Sudbury, and John Lyon School. </blockquote>   
+
+</section> <footer> <p>--- by honour bound, by heritage kept, by heart remembered ---</p> </footer> </main> </body> </html>
