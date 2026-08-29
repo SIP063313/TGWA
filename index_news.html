@@ -1,0 +1,185 @@
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echoes of Sacrifice</title>
+
+    <style>
+
+        :root {
+            --primary-color: #003153;
+	    --header-color: #555555;
+            --secondary-color: #F4A261;
+            --bg-color: #f9f7f1;
+            --text-color: #333;
+            --border-color: #ccc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 0;
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 5px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--primary-color);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 5px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            color: var(--header-color);
+            margin-bottom: 5px;
+            font-size: 2.5rem;
+        }
+
+        p.subtitle {
+         
+	    font-style: italic;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .powerbi-placeholder {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 500px;
+            background-color: #f5f5f5;
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            margin: 5px 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .powerbi-placeholder h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .powerbi-placeholder p {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        /* Updated for JPG image replacement */
+        .powerbi-placeholder img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        /* PDF viewer */
+        .pdf-viewer {
+            width: 100%;
+            height: 600px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            margin-bottom: 15px;
+            background-color: #fff;
+        }
+
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container { padding: 5px; }
+            .powerbi-placeholder { padding: 15px; }
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 5px; }
+            .container { padding: 5px; }
+            h1 { font-size: 1.8rem; }
+            .powerbi-placeholder { padding: 15px; min-height: 400px; }
+            .powerbi-placeholder h2 { font-size: 1.5rem; }
+            .powerbi-placeholder p { font-size: 1rem; }
+            .loading-spinner { width: 30px; height: 30px; }
+            .pdf-viewer { height: 480px; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 5px; }
+            .powerbi-placeholder { padding: 10px; min-height: 350px; }
+            .powerbi-placeholder h2 { font-size: 1.3rem; }
+            .powerbi-placeholder p { font-size: 0.9rem; }
+            .loading-spinner { width: 30px; height: 30px; }
+            .pdf-viewer { height: 380px; }
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; border: none; width: 100%; max-width: 100%; }
+            .powerbi-placeholder { display: none; }
+            .pdf-viewer { display: none; }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <header style="background-image: url('Thiepval.png'); background-size: 100% auto; background-position: center; background-repeat: no-repeat; min-height: 220px;">
+</header>
+
+    <div class="powerbi-placeholder">
+        <h2>A 2014 John Lyon Student Project</h2>
+
+        <!-- PDF display -->
+        <iframe class="pdf-viewer" 
+                src="JLS_2014_Project.pdf#toolbar=0&navpanes=0&scrollbar=0" 
+                title="PDF Report"
+                style="width:100%; height:600px; border:1px solid #ccc; border-radius:4px;">
+        </iframe>
+
+        <p style="font-size: 0.9rem; margin-top: 20px; color: #888;"></p>
+    </div>
+
+    <footer style="margin-top: 15px; text-align: center; font-size: 0.9rem; color: #777;">
+
+        <p>--- by honour bound, by heritage kept, by heart remembered ---</p>
+
+    </footer>
+
+</div>
+
+</body>
+</html>
