@@ -124,12 +124,16 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* Touch device detection — shows PDF fallback for all touch devices regardless of screen size or orientation */
+        @media (hover: none) and (pointer: coarse) {
+            .mobile-pdf-note { display: block; }
+        }
+
         /* Responsive Design */
         @media (max-width: 1024px) {
             .container { padding: 5px; }
             .pdf-container { padding: 15px; }
             .pdf-wrapper iframe { height: 450px; }
-            .mobile-pdf-note { display: block; }
         }
 
         @media (max-width: 768px) {
@@ -145,6 +149,7 @@
 
         @media (max-width: 480px) {
             body { padding: 5px; }
+            .container { padding: 5px; }
             .pdf-container { padding: 10px; min-height: 350px; }
             .pdf-container h2 { font-size: 1.3rem; }
             .loading-spinner { width: 30px; height: 30px; }
@@ -177,7 +182,7 @@
             </iframe>
         </div>
 
-        <!-- Fallback message for iOS/mobile devices where embedded PDF may not work -->
+        <!-- Fallback message for touch/mobile devices where embedded PDF may not work -->
         <div class="mobile-pdf-note">
             <p>If the document does not display above, tap here to Open it:<br>
             <a href="JLS_2014_Project.pdf" target="_blank">Open JLS_2014_Project.pdf</a></p>
