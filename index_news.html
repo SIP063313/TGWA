@@ -11,7 +11,7 @@
 
         :root {
             --primary-color: #003153;
-	    --header-color: #555555;
+            --header-color: #555555;
             --secondary-color: #F4A261;
             --bg-color: #f9f7f1;
             --text-color: #333;
@@ -54,12 +54,12 @@
 
         p.subtitle {
          
-	    font-style: italic;
+            font-style: italic;
             color: #666;
             font-size: 1.1rem;
         }
 
-        .powerbi-placeholder {
+        .pdf-container {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -73,39 +73,41 @@
             box-sizing: border-box;
         }
 
-        .powerbi-placeholder h2 {
+        .pdf-container h2 {
             color: var(--primary-color);
-            font-size: 2rem;
+            font-size: 1.5rem;
             margin-bottom: 10px;
             margin-top: 0;
         }
 
-        .powerbi-placeholder p {
-            color: #666;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            max-width: 600px;
+        .pdf-wrapper {
+            position: relative;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .pdf-wrapper iframe {
+            width: 100%;
+            height: 500px;
+            display: block;
+            border-radius: 4px;
+            border: none;
+        }
+
+        .mobile-pdf-note {
+            display: none;
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
             text-align: center;
         }
 
-        .powerbi-placeholder img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-            border-radius: 4px;
-        }
-
-        /* PDF viewer with mobile fixes */
-        .pdf-viewer {
-            width: 100%;
-            height: 60vh;
-            min-height: 400px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            margin-bottom: 15px;
-            background-color: #fff;
-            overflow: auto;
-            -webkit-overflow-scrolling: touch;
+        .mobile-pdf-note a {
+            color: var(--primary-color);
+            text-decoration: underline;
         }
 
         .loading-spinner {
@@ -122,60 +124,37 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Mobile PDF warning message */
-        .mobile-pdf-note {
-            background: #fef9e8;
-            border-left: 4px solid var(--secondary-color);
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 4px;
-            font-size: 0.95rem;
-            color: #666;
-        }
-
-        .mobile-pdf-note a {
-            color: var(--primary-color);
-            text-decoration: underline;
-        }
-
         /* Responsive Design */
         @media (max-width: 1024px) {
             .container { padding: 5px; }
-            .powerbi-placeholder { padding: 15px; }
-            .pdf-viewer { height: 55vh; }
+            .pdf-container { padding: 15px; }
+            .pdf-wrapper iframe { height: 450px; }
         }
 
         @media (max-width: 768px) {
             body { padding: 5px; }
             .container { padding: 5px; }
             h1 { font-size: 1.8rem; }
-            .powerbi-placeholder { padding: 15px; min-height: 400px; }
-            .powerbi-placeholder h2 { font-size: 1.5rem; }
-            .powerbi-placeholder p { font-size: 1rem; }
+            .pdf-container { padding: 15px; min-height: 400px; }
+            .pdf-container h2 { font-size: 1.5rem; }
+            .pdf-container p { font-size: 1rem; }
             .loading-spinner { width: 30px; height: 30px; }
-            .pdf-viewer { 
-                height: 50vh; 
-                min-height: 350px;
-            }
+            .pdf-wrapper iframe { height: 400px; }
+            .mobile-pdf-note { display: block; }
         }
 
         @media (max-width: 480px) {
             body { padding: 5px; }
-            .powerbi-placeholder { padding: 10px; min-height: 350px; }
-            .powerbi-placeholder h2 { font-size: 1.3rem; }
-            .powerbi-placeholder p { font-size: 0.9rem; }
+            .pdf-container { padding: 10px; min-height: 350px; }
+            .pdf-container h2 { font-size: 1.3rem; }
             .loading-spinner { width: 30px; height: 30px; }
-            .pdf-viewer { 
-                height: 45vh; 
-                min-height: 300px;
-            }
+            .pdf-wrapper iframe { height: 350px; }
         }
 
         @media print {
             body { background: white; padding: 0; }
             .container { box-shadow: none; border: none; width: 100%; max-width: 100%; }
-            .powerbi-placeholder { display: none; }
-            .pdf-viewer { display: none; }
+            .pdf-container { display: none; }
         }
 
     </style>
@@ -185,26 +164,24 @@
 <body>
 
 <div class="container">
-    <header style="background-image: url('Thiepval.png'); background-size: 100% auto; background-position: center; background-repeat: no-repeat; min-height: 220px;">
+    <header style="background-image: url('news-cwgc.png'); background-size: 100% auto; background-position: center; background-repeat: no-repeat; min-height: 220px;">
 </header>
 
-    <div class="powerbi-placeholder">
-        <h2>A 2014 John Lyon Student Project</h2>
+    <div class="pdf-container">
+        <h2><em>A link through the ages</em></h2>
 
-        <!-- Mobile PDF note -->
-        <p class="mobile-pdf-note">
-            <strong>Note for mobile users:</strong> If the PDF below doesn't display all pages correctly, 
-            <a href="JLS_2014_Project.pdf" target="_blank">click here to open it in a new tab</a> 
-            where you can scroll through all pages.
-        </p>
+        <!-- PDF viewer wrapper for responsive display -->
+        <div class="pdf-wrapper">
+            <iframe src="JLS_2014_Project.pdf" type="application/pdf" title="Document Viewer">
+                Your browser does not support embedded PDFs.
+            </iframe>
+        </div>
 
-        <!-- PDF display -->
-        <iframe class="pdf-viewer" 
-                src="JLS_2014_Project.pdf#toolbar=0&navpanes=0&scrollbar=1" 
-                title="PDF Report"
-                style="width:100%; border:1px solid #ccc; border-radius:4px;"
-                loading="lazy">
-        </iframe>
+        <!-- Fallback message for iOS/mobile devices where embedded PDF may not work -->
+        <div class="mobile-pdf-note">
+            <p>If the document does not display below, tap here to open it:<br>
+            <a href="JLS_2014_Project.pdf" target="_blank">Open JLS_2014_Project.pdf</a></p>
+        </div>
 
         <p style="font-size: 0.9rem; margin-top: 20px; color: #888;"></p>
     </div>
