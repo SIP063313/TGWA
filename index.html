@@ -91,6 +91,29 @@
             margin: 0 auto;
         }
 
+        /* Hyperlink styling for header text */
+        header p a {
+            color: #5ec8ff;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        header p a:hover {
+            color: #9bdfff;
+        }
+
+        /* Hyperlink styling for footer text (matches header) */
+        footer p a {
+            color: #5ec8ff;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        footer p a:hover {
+            color: #9bdfff;
+        }
+
         /* Main Content - 5 Card Layout with Focal Point (symmetrical) */
         main {
             flex: 1;
@@ -415,7 +438,7 @@
                     <h1>The Great War Archives</h1>
                 </div>
         
-                <p>Marking 150 years of John Lyon School in 2026, the class of '76 honour our WWI fallen, from the Somme to Gallipoli, Africa to Mesopotamia ... their stories are preserved here as a living legacy.</p>
+                <p>Marking 150 years of John Lyon School in 2026, the <a href="index_76.html" target="_blank" rel="noopener noreferrer">Class of '76</a> honour our WWI fallen, from the Somme to Gallipoli, Africa to Mesopotamia ... their stories are preserved here as a living legacy.</p>
 
             </header>
 
@@ -473,12 +496,9 @@
             <!-- Footer -->
             <footer>
 		<p>For Your Tomorrow, We Gave Our Today</p>
-		<p>&copy; 2026 FlowFusion. All rights reserved.</p>
+		<p> WWI-era source materials on this site are in the public domain.<br /> AI-assisted transcriptions may lack copyright; human-edited additions<br /> are licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>. </p>
             </footer>
         </div>
     </div>
 </body>
 </html>
-
-
-

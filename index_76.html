@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class of '76</title>
+
+    <style>
+
+        :root {
+            --primary-color: #003153;
+	    --header-color: #555555;
+            --secondary-color: #F4A261;
+            --bg-color: #f9f7f1;
+            --text-color: #333;
+            --border-color: #ccc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--primary-color);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        h1 {
+            color: var(--header-color);
+            margin-bottom: 5px;
+            font-size: 2.5rem;
+        }
+
+        p.subtitle {
+         
+	    font-style: italic;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .search-container {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        #searchInput {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 4px;
+            background-color: #fcfcfc;
+        }
+
+        .roll-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1rem;
+        }
+
+        .roll-table th, .roll-table td {
+            text-align: left;
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .roll-table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .roll-table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .rank {
+            color: var(--primary-color);
+        }
+
+        .notes {
+            color: #666;
+            font-style: italic;
+        }
+
+        .table-scroll-wrapper {
+            max-height: 70vh;
+            overflow-y: auto;
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            h1 { font-size: 1.8rem; }
+            .roll-table th, .roll-table td {
+                padding: 8px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; border: none; width: 100%; max-width: 100%; }
+            #searchInput { display: none; }
+            .roll-table th { background-color: #ddd !important; color: black !important; z-index: 0; }
+            .table-scroll-wrapper { max-height: none !important; overflow: visible !important; }
+        }
+
+        dialog {
+            width: 800px;
+            max-width: 90%;
+            height: 600px;
+            max-height: 90%;
+            padding: 20px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <header style="background-image: url('Classof76.png'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 430px;">
+<!--        <h1>Class of '76</h1>  -->
+    </header>
+<p style="font-size: 16px; font-weight:bold; font-style: italic; text-align: center;">Our Plaque & Great War Archives made possible by the Class of '76.</center></em></p>
+
+       
+    <div class="search-container">
+        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search by name ...">
+    </div>
+
+    <div class="table-scroll-wrapper">
+    <table class="roll-table" id="honourTable">
+        <thead>
+	<script>
+		const File_Location = "raw.githubusercontent.com/SIP063313/EOS_POC/refs/heads/main/"
+	</script>
+	
+            <tr>
+                <th style="width: 15%">Name</th>
+		<th style="width: 6%">Joined</th>
+		<th style="width: 6%">Left</th>
+		<th style="width: 73%">Memories frozen in time ...</th>
+		
+            </tr>
+        </thead>
+        <tbody>
+
+		<tr>
+                <td><strong>Davison I</strong></td>
+                <td class="rank">1969</td>
+                <td>1976</td>            	
+		<td>Ah the 6th form common room, I have great memories from there! Someone placed a large stainless steel teapot on 		the centre of a table, filled it with hot water then added copious quantities of dry ice! The whole place filled 		with thick white vapour, but as far as I am aware there were no suffocation victims.
+		One time I was standing and holding a hot mug of coffee when a cushion was lobbed at me. I dodged it, then another 		cushion was lobbed from another direction and I dodged that one as well without spilling any coffee. However, two 		cushions were then thrown at me from different directions simultaneously and I was doused in scalding hot coffee. Oh 		well, no doubt the pain was character building.</td>	
+            	</tr>
+
+		<tr>
+                <td><strong>Foster M</strong></td>
+                <td class="rank">1969</td>
+                <td>1976</td>            	
+		<td>Was it Mr Bott {was that his name} the semi permanent biology Master, who said “Nothing is surely except on 		Fleet Street"</td>	
+            	</tr>
+
+		<tr>
+                <td><strong>French A</strong></td>
+                <td class="rank">1969</td>
+                <td>1976</td>            	
+		<td>Happy memories of C.C.F. field days, usually on Barossa training area near Camberley. Firing a our No.4 Lee 		Enfield rifles in deep puddles while on the training area and then running to avoid the large water shower that 		descended a few seconds after. Most of us purchased Denison smocks and 1958-pattern webbing from an army surplus 		store in Wealdstone. Much better than those awful denim fatigues we were issued. The senior cadet a few years older 		was WO1 Baird. He looked so grown up in his uniform with WO1’s coat of arms badge on his lower right sleeve but I 		dare say he was only seventeen or so. Knowing Barossa training area stood me in good stead when I joined the T.A. A 		year or so later in 1978 and where we often trained.</td>	
+            	</tr>
+
+		<tr>
+                <td><strong>Harragin R</strong></td>
+                <td class="rank">1969</td>
+                <td>1976</td>            	
+		<td>I recall in class 2A ( must have been the year before streaming started!) the secret messaging system, 			comprising a series of almost equally spaced crocodile clips on a looped piece of string tied to the two radiators 		on the right hand side of the classroom. Paper based comms were added at will. I also remember (only) half catching 		a board rubber thrown at me by our dearly departed GVS whilst operating said system during in a Latin lesson. I had 		always thought, until recently, that ‘in flagrante delicto’ meant something entirely different and much more 			furtive.
+		I have vivid recall of those in the card playing fraternity, which involved small wagers, generally (at 			least for the less well off) using lunch money, playing a variety of games, principally three card brag, pontoon and 		draw poker. Those who have watched Casino Royale will know that card players always have a ‘tell’. There were one or 		two in our midst who had such a glaringly obvious tell when dealt a decent hand, cheeks turning bright red, that all 		other players immediately folded. Two names come to mind but, to use another card term, I will let them declare if 		they choose.
+		4A1 ( located down the steps,just above the six a side pitch) had a small storage room at the front. All but two or 		three in the class ( Clive S and Jim Rhymer I think were two) piled in to the cupboard before teacher arrived. 			Someone had set up a cassette tape ( was the that Gibson perhaps?) to record the reaction of the teacher to an 			almost empty class. The event was curtailed when the squeeze in the cupboard quickly became unbearable and two or 		three ( Neil Lamont was one) who fell sideways out the door ending up in a heap on the classroom floor.</td>
+		</tr>
+
+		<tr>
+                <td><strong>Heywood S</strong></td>
+                <td class="rank">1969</td>
+                <td>1976</td>            	
+		<td>CCF and second fiddle in the school string quartet with Simon Mortimer (viola) and Michael Kwan ('cello), both 		class of '76. Martin Biggs was first fiddle. One memory was working with Simon Clark to record sound effects for a 		school production. We recorded running in hobnail boots across the gravelly playground in the Red House (several 		times!)</td>	
+            	</tr>
+
+		<tr>
+                <td><strong>Matarewicz P</strong></td>
+                <td class="rank">1969</td>
+                <td>1976</td>            	
+		<td>Mr Buck ‘Hands down those boys’, ‘Do not be frivolous or I shall slap your face’, Mr Seagal - busted the smokers 		in the 6th form common room (ex chemistry lab) loo, as he’d run out of fags and needed to confiscate some. Then had 		to stand in front of Pukes whilst being told how naughty we were (a month before A levels). True story, I was 			fagging it with 10 others in there</td>	
+            	</tr>
+
+
+		<tr>
+                <td><strong>Mortimer S</strong></td>
+                <td class="rank">1969</td>
+                <td>1976</td>            	
+		<td>For me it’s musical memories and thanks Steve for the quartet name check - where I started to learn about real 		ensemble music making with the amazing Margaret McDonald. Whilst teaching us she swigged her home brew red wine and 		smoked whilst she played, the ash off the fag dropping in the f hole of her violin, I kid you not! Choirs, orchestra 		and the rock band, Gremlin, with the wonderful guys, John Sutter and Mick Kwan!</td>	
+            	</tr>
+
+
+		<tr>
+                <td><strong>Norfolk M</strong></td>
+                <td class="rank">1969</td>
+                <td>1975</td>            	
+		<td>Memories of my time in the Army Cadets & friendships</td>	
+            	</tr>
+
+            	<tr>
+                <td><strong>Paget S</strong></td>
+                <td class="rank">1969</td>
+                <td>1974</td>            	
+		<td>Sport, sport and more sport. 10-a-side footie on the very small Red House playground. U15 - St Clement Danes - 4 		John Lyon - 13 ... Harragin stops the ball on the goal line so I could get the hat-trick ... Literally could not 		miss</td>	
+            	</tr>
+
+		<tr>
+                <td><strong>Phillipps D</strong></td>
+                <td class="rank">1969</td>
+                <td>1975</td>            	
+		<td>Bill Podmore, history teacher by day and a genius as a badminton coach after school, creating champion teams 		year after year</td>	
+            	</tr>
+
+		<tr>
+                <td><strong>Raby P</strong></td>
+                <td class="rank">1969</td>
+                <td>1976</td>            	
+		<td>CCF & mentoring the Duke of Edinburgh's candidates. Ferrying boys to hospital in my mini, after first 			aiding</td>	
+            	</tr>
+
+		<tr>
+                <td><strong>Redman T</strong></td>
+                <td class="rank">1971</td>
+                <td>1975</td>            	
+		<td>I remember there being a big hoohah when apparently some morphine went missing from the RAF CCF emergency First 		Aid Kit.  I recall Dummy Holton carrying out some investigation.  Can’t remember the outcome though.
+		I also remember some of us were building scenery in one of the practice rooms in the Music School.  The top came off 		a can of white spray paint and it sprayed everywhere including covering  the piano in the room with white dots.  We 		had to rush to the woodwork shop to get some French Polish to re-varnish the piano before anyone noticed.
+		Also remember building scenery and falling off a ladder which was resting on the roof rafters above the Music Room 		stage and breaking both my wrists.  I can still see the English teacher supervising, Ray Mears I think(?), running 		across the room to see if I had injured myself.  Poor bugger must have panicked that I'd been seriously injured on 		his watch.  He visited me at the hospital when I was being treated, which was nice!</td>	
+            	</tr>
+		<tr>
+
+		<tr>
+                <td><strong>Scowen C</strong></td>
+                <td class="rank">1969</td>
+                <td>1976</td>            	
+		<td>Mention of Aubrey Buck has rekindled some musical memories.  He was a rich seam of mimicry and mockery. Only 		about 5 feet tall, he seemed so old – like something from a bygone age, though at the time he was almost certainly 		younger than we are now!  We called him The Chairman – I am not sure why, perhaps a riff on Chairman Mao?  But he 		inspired musical/poetic types to write lyrics and set them to well know tunes – like the chorus from I think Bizet’s 		Carmen. It began “Look at the Chairman in the countryside, look at the band tootling along” – and continued 			bizarrely “look at him as he bounces against the wall, this little Buck is not tall”.  Another was set to the tune 		of the Marseillaise and included the immortal words “I only slap boys’ faces when they’re not being serious. Ou est 		le frivole? Je suis Doosee Buck”.  Yet another went  to the Hallelujah Chorus: “Hand down Cox!  Hallelujah! I shall 		slap it”.</td>	
+            	</tr>
+		<tr>
+
+                <td><strong>White N</strong></td>
+                <td class="rank">1969</td>
+                <td>1976</td>            	
+		<td>Nunky Vernon lecturing about fire safety, leaning back onto his desk immediately followed by Simon Clark yelling 		out your jacket is on fire!  He had lent back onto the bunsen burner!</td>	
+            	</tr>
+
+		<td><strong>Woodend A</strong></td>
+                <td class="rank">1969</td>
+                <td>1976</td>            	
+		<td>In 1A I recall a maths teacher (think it might have been a Mr Ryder) with a northern accent who's catch phrase, 		for me at least, was a very bluntly delivered 'Right, get out a piece of Block, and put your name on it'. The tone 		suggested something frighteningly nasty coming up. So in that moment, on that first day at school and very first 		maths lesson, it took what seemed like years for me to realise (from observing my neighbours) that 'block' = A4 		paper!. Never forgotten that.That was Monday, so I dreaded Tuesday, but by Wednesday things got better - for example 		geography on a Wednesday with Bill (Worman, I think) was never quite as intense!.</td>	
+            	</tr>
+
+
+        
+        </tbody>
+    </table>
+    </div>
+
+
+    <footer style="margin-top: 30px; text-align: center; font-size: 0.9rem; color: #777;">
+
+        <p>A light-hearted look a look back by the Class of '76 at those memorable school moments</p>
+	<p><center>--- by honour bound, by heritage kept, by heart remembered ---</center></p>
+
+        <p></p>
+
+    </footer>
+
+
+    
+    <script>
+        // SEARCH FUNCTION - This was MISSING from your original file!
+        function filterTable() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toUpperCase().trim();
+            const table = document.getElementById('honourTable');
+            const tbody = table.querySelector('tbody');
+            const rows = tbody.querySelectorAll('tr');
+
+            rows.forEach(row => {
+                const text = row.textContent.toUpperCase();
+                row.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+
+</body>
+</html>
