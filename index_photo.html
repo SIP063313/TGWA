@@ -1,0 +1,520 @@
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+
+    <title>Faces and Images of Sacrifice</title>
+
+    <style>
+
+        :root {
+            --primary-color: #003153;
+            --header-color: #555555;
+            --secondary-color: #F4A261;
+            --bg-color: #f9f7f1;
+            --text-color: #333;
+            --border-color: #ccc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 0;
+            padding: 10px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 5px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--primary-color);
+            overflow: visible;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 5px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            color: var(--header-color);
+            margin-bottom: 5px;
+            font-size: 2.5rem;
+        }
+
+        p.subtitle {
+
+            font-style: italic;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* ===== Photo Gallery Sections ===== */
+        .photo-section {
+            margin: 15px 0;
+            padding: 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+
+        .photo-section h2 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-top: 0;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .photo-section .section-caption {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            font-size: 0.95rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 12px;
+        }
+
+        .photo-grid img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            display: block;
+            background-color: #eee;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        .photo-grid img:hover {
+            opacity: 0.85;
+        }
+
+        .photo-grid figure {
+            margin: 0;
+        }
+
+        .photo-grid figcaption {
+            font-size: 0.8rem;
+            color: #777;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        /* ===== Lightbox ===== */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .lightbox.open {
+            display: flex;
+        }
+
+        .lightbox img.lightbox-img {
+            max-width: 90%;
+            max-height: 80vh;
+            height: auto;
+            object-fit: contain;
+            border-radius: 4px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.8);
+            display: block;
+        }
+
+        .lightbox .lightbox-caption {
+            color: #fff;
+            font-size: 1rem;
+            margin-top: 15px;
+            text-align: center;
+            max-width: 80%;
+        }
+
+        .lightbox .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            line-height: 1;
+            user-select: none;
+        }
+
+        .lightbox .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+            font-size: 3rem;
+            cursor: pointer;
+            padding: 20px;
+            user-select: none;
+        }
+
+        .lightbox .lightbox-prev { left: 10px; }
+        .lightbox .lightbox-next { right: 10px; }
+
+        .lightbox .lightbox-nav:hover,
+        .lightbox .lightbox-close:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container { padding: 5px; }
+            .photo-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 5px; }
+            .container { padding: 5px; }
+            h1 { font-size: 1.8rem; }
+            .photo-section { padding: 10px; }
+            .photo-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+            .photo-grid img { height: 160px; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 5px; }
+            .photo-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+            .photo-grid img { height: 130px; }
+            .lightbox .lightbox-nav { font-size: 2rem; }
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; border: none; width: 100%; max-width: 100%; }
+            .photo-section, .lightbox { display: none; }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <header style="background-image: url('Thiepval2.jpg'); background-size: 100% auto; background-position: center; background-repeat: no-repeat; min-height: 220px;">
+</header>
+
+    <!-- ============================ -->
+    <!-- SECTION 1                    -->
+    <!-- ============================ -->
+    <section class="photo-section">
+        <h2><em>Our Brave Old Lyonians</em></h2>
+        <p class="section-caption">Middle Road, Harrow on the Hill a single location,Provided a willing source of soldierly vocation.</p>
+        <div class="photo-grid">
+
+            <!-- Photo 1 of 3 -->
+            <figure>
+                <img src="Abbati2.jpg" alt="Abbati">
+                <figcaption>Abbati W.R 07 Aug 1916</figcaption>
+            </figure>
+
+            <!-- Photo 2 of 3 -->
+            <figure>
+                <img src="Asher1.jpg" alt="Asher">
+                <figcaption>Asher K.J.P 01 Jul 1916 - Somme Day 1</figcaption>
+            </figure>
+
+            <!-- Photo 3 of 3 -->
+            <figure>
+                <img src="Beatty2.jpg" alt="Beatty">
+                <figcaption>Beatty A.H.W 31 Jul 1917</figcaption>
+            </figure>
+
+	    <!-- Photo 4 of 4 -->
+            <figure>
+                <img src="Best2.jpg" alt="Best">
+                <figcaption>Best J. 15 May 1918</figcaption>
+            </figure>
+
+ 	    <!-- Photo 5 of 5 -->
+            <figure>
+                <img src="Bradberry2.jpg" alt="Bradberry">
+                <figcaption>Bradberry R.W. 03 Dec 1917</figcaption>
+            </figure>
+
+            <!-- Photo 6 of 6 -->
+            <figure>
+                <img src="Butler2.jpg" alt="Butler">
+                <figcaption>Butler B.G 03 Feb 1915</figcaption>
+            </figure>
+	    <!-- Photo 7 of 7 -->
+            <figure>
+                <img src="Clowes2.jpg" alt="Clowes">
+                <figcaption>Clowes W.H 04 Apr 1917</figcaption>
+            </figure>
+
+	    <!-- Photo 8 of 8 -->
+            <figure>
+                <img src="Ellis2.jpg" alt="Ellis">
+                <figcaption>Ellis R.L.S 20 Sept 1915</figcaption>
+            </figure>
+
+	    <!-- Photo 9 of 9 -->
+            <figure>
+                <img src="Fillmore2.jpg" alt="Fillmore">
+                <figcaption>Fillmore F.A 13 Nov 1916</figcaption>
+            </figure>
+
+ 	    <!-- Photo 10 of 10 -->
+            <figure>
+                <img src="Fryer2.jpg" alt="Fryer">
+                <figcaption>Fryer E.H 20 Sept 1915</figcaption>
+            </figure>
+
+	    <!-- Photo 11 of 11 -->
+            <figure>
+                <img src="Lion2.jpg" alt="Lion">
+                <figcaption>Lion T.E 28 Sept 1915</figcaption>
+            </figure>
+
+	    <!-- Photo 12 of 12 -->
+            <figure>
+                <img src="Parker2.jpg" alt="Parker">
+                <figcaption>Parker A.W 14 Mar 1918</figcaption>
+            </figure>
+
+	    <!-- Photo 13 of 13 -->
+            <figure>
+                <img src="Paterson2.jpg" style="object-position:top;" alt="Paterson">
+                <figcaption>Paterson A.F 01 Jul 1916 - Somme Day 1</figcaption>
+            </figure>
+
+	    <!-- Photo 14 of 14 -->
+            <figure>
+                <img src="Reid2.jpg" alt="Reid">
+                <figcaption>Reid L.T.F 01 Nov 1914</figcaption>
+            </figure>
+	
+	    <!-- Photo 15 of 15 -->
+            <figure>
+                <img src="Sadd2.jpg" alt="Sadd">
+                <figcaption>Sadd R.D 14 Feb 1917</figcaption>
+            </figure>
+
+ 	    <!-- Photo 16 of 16 -->
+            <figure>
+                <img src="Slade2.jpg" style="object-position:top;" alt="Slade">
+                <figcaption>Slade F 09 Sept 1916</figcaption>
+            </figure>
+
+	    <!-- Photo 17 of 17 -->
+            <figure>
+                <img src="Stearns4.jpg" style="object-position:top;" alt="Stearns">
+                <figcaption>Stearns E.G 06 Aug 1915</figcaption>
+            </figure>
+
+	    <!-- Photo 18 of 18 -->
+            <figure>
+                <img src="Taylor2.jpg" style="object-position:top;" alt="Taylor">
+                <figcaption>Taylor J.H 17 Apr 1918</figcaption>
+            </figure>
+
+            <!-- Photo 19 of 19 -->
+            <figure>
+                <img src="Williamson2.png" style="object-position:top;" alt="Williamson">
+                <figcaption>Williamson W R 25 May 1915</figcaption>
+            </figure>
+
+            <!-- Photo 20 of 20 -->
+            <figure>
+                <img src="Woodbridge.jpg" style="object-position:top;" alt="Woodbridge">
+                <figcaption>Woodbridge S.G 19 Dec 1918</figcaption>
+            </figure>
+
+
+            <!-- To add more photos here, copy a <figure> block
+                 and change the src and caption. New photos will
+                 automatically work with the lightbox. -->
+
+        </div>
+    </section>
+
+    <!-- ============================ -->
+    <!-- SECTION 2                    -->
+    <!-- ============================ -->
+    <section class="photo-section">
+        <h2><em>Section 2 Title</em></h2>
+        <p class="section-caption">They happily enlisted and all went with smiles, To fight for outcomes measured in slaughter and miles.
+</p>
+        <div class="photo-grid">
+
+            <!-- Photo 1 of 3 -->
+            <figure>
+                <img src="Asher2.jpg" alt="Asher Wat Grave">
+                <figcaption>The Grave Marker of Asher K.J.P</figcaption>
+            </figure>
+
+            <!-- Photo 2 of 3 -->
+            <figure>
+                <img src="jordan-biplane.jpg" alt="Jordan BiPlane">
+                <figcaption>Jordan - Royal Aircraft Factory R.E.8 biplane</figcaption>
+            </figure>
+
+            <!-- Photo 3 of 3 -->
+            <figure>
+                <img src="ploegsteert.jpg" alt="Boreham Ploegsteert">
+                <figcaption>H. P.Boreham - Ploegsteert &#169 Jeremy Gordon-Smith</figcaption>
+            </figure>
+
+	    <!-- Photo 4 of 4 -->
+            <figure>
+                <img src="Woodbridge_MC.jpg" alt="Woodbridge Military Cross">
+                <figcaption>Woodbridge Military Cross</figcaption>
+            </figure>
+
+
+
+            <!-- To add more photos here, copy a <figure> block
+                 and change the src and caption. -->
+
+        </div>
+    </section>
+
+    <!-- ============================ -->
+    <!-- SECTION 3                    -->
+    <!-- ============================ -->
+    <section class="photo-section">
+        <h2><em>Section 3 Title</em></h2>
+        <p class="section-caption">Life as they lived it</p>
+        <div class="photo-grid">
+
+            <!-- Photo 1 of 3 -->
+            <figure>
+                <img src="stearns-1909.jpg" alt="Stearns 1">
+                <figcaption>Stearns - JLS 1st XI 1909</figcaption>
+            </figure>
+
+            <!-- Photo 2 of 3 -->
+            <figure>
+                <img src="Stearns-Hero.jpg" alt="Stearns 2">
+                <figcaption>Stearns - All round top bloke</figcaption>
+            </figure>
+
+            <!-- Photo 3 of 3 -->
+            <figure>
+                <img src="Slade3.jpg" alt="Slade 3">
+                <figcaption>Slade Bros - All heroes</figcaption>
+            </figure>
+
+	    <!-- To add more photos here, copy a <figure> block
+                 and change the src and caption. -->
+
+        </div>
+    </section>
+
+    <footer style="margin-top: 15px; text-align: center; font-size: 0.9rem; color: #777;">
+
+        <p>--- by honour bound, by heritage kept, by heart remembered ---</p>
+
+    </footer>
+
+</div>
+
+<!-- ===== Lightbox overlay (do not remove) ===== -->
+<div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose" title="Close">&times;</span>
+    <span class="lightbox-nav lightbox-prev" id="lightboxPrev" title="Previous">&#8249;</span>
+    <span class="lightbox-nav lightbox-next" id="lightboxNext" title="Next">&#8250;</span>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+</div>
+
+<script>
+(function () {
+    var lightbox = document.getElementById('lightbox');
+    var lightboxImg = document.getElementById('lightboxImg');
+    var lightboxCaption = document.getElementById('lightboxCaption');
+    var closeBtn = document.getElementById('lightboxClose');
+    var prevBtn = document.getElementById('lightboxPrev');
+    var nextBtn = document.getElementById('lightboxNext');
+
+    // Collect every image inside the photo grids
+    var photos = Array.prototype.slice.call(
+        document.querySelectorAll('.photo-grid img')
+    );
+    var currentIndex = 0;
+
+    function showImage(index) {
+        currentIndex = (index + photos.length) % photos.length;
+        var img = photos[currentIndex];
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt || '';
+        // Caption comes from the figcaption inside the same figure
+        var fig = img.closest('figure');
+        var cap = fig ? fig.querySelector('figcaption') : null;
+        lightboxCaption.textContent = cap ? cap.textContent : '';
+    }
+
+    function openLightbox(img) {
+        showImage(photos.indexOf(img));
+        lightbox.classList.add('open');
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('open');
+    }
+
+    photos.forEach(function (img) {
+        img.addEventListener('click', function () {
+            openLightbox(img);
+        });
+    });
+
+    closeBtn.addEventListener('click', closeLightbox);
+
+    // Close when clicking on the dark background (but not the image itself)
+    lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    prevBtn.addEventListener('click', function () {
+        showImage(currentIndex - 1);
+    });
+
+    nextBtn.addEventListener('click', function () {
+        showImage(currentIndex + 1);
+    });
+
+    // Keyboard support: Escape closes, arrow keys navigate
+    document.addEventListener('keydown', function (e) {
+        if (!lightbox.classList.contains('open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+        if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+    });
+})();
+</script>
+
+</body>
+</html>

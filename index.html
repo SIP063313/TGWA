@@ -123,6 +123,7 @@
             align-items: center;
         }
 
+        /* Cards always in ONE horizontal row */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -227,6 +228,34 @@
             opacity: 1;
         }
 
+        /* Buttons inside Card 1 */
+        .card-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .card-btn {
+            display: inline-block;
+            padding: 0.45rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .card-btn:hover {
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateY(-2px);
+        }
+
         /* Footer Styles - Transparent (background image visible) */
         footer {
             padding: 2rem 5%;
@@ -264,16 +293,11 @@
             }
         }
 
-        /* Tablet Styles (iPad landscape/portrait - 5 cards on one line) */
+        /* Tablet Styles (iPad - 5 cards stay on one line) */
         @media (max-width: 1199px) and (min-width: 768px) {
             .cards-grid {
-                grid-template-columns: repeat(5, 1fr);
                 gap: 0.75rem;
                 width: 100%;
-            }
-
-            .card:nth-child(3) {
-                grid-column: auto;
             }
 
             /* Restore hover effects for all cards */
@@ -332,7 +356,7 @@
             }
         }
 
-        /* Portrait iPad / Small Tablets */
+        /* Portrait iPad / Small Tablets - still one horizontal row */
         @media (max-width: 767px) {
             header {
                 padding: 1.5rem 5%;
@@ -356,42 +380,44 @@
             }
 
             main {
-                padding: 1.5rem 5%;
+                padding: 1.5rem 2%;
             }
 
             .cards-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-                padding: 0;
-            }
-
-            .card {
-                width: 100%;
+                gap: 0.5rem;
             }
 
             .card-image {
-                height: 140px;
+                height: 100px;
             }
 
             .card.focal .card-image {
-                height: 180px;
+                height: 130px;
+            }
+
+            .card-content {
+                padding: 0.6rem;
+            }
+
+            .card.focal .card-content {
+                padding: 0.8rem;
             }
 
             .card-title {
-                font-size: 1.1rem;
-                margin-bottom: 0.5rem;
+                font-size: 0.8rem;
+                margin-bottom: 0.4rem;
             }
 
             .card.focal .card-title {
-                font-size: 1.4rem;
+                font-size: 1rem;
             }
 
             .card-description {
-                font-size: 0.85rem;
+                font-size: 0.65rem;
             }
 
             .card.focal .card-description {
-                font-size: 0.95rem;
+                font-size: 0.75rem;
             }
 
             footer {
@@ -403,12 +429,8 @@
             }
         }
 
-        /* Mobile Single Column */
+        /* Mobile - still one horizontal row */
         @media (max-width: 480px) {
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-
             header h1 {
                 font-size: 1.5rem;
             }
@@ -418,12 +440,40 @@
                 max-width: 60px;
             }
 
+            .cards-grid {
+                gap: 0.35rem;
+            }
+
             .card-image {
-                height: 160px;
+                height: 90px;
             }
 
             .card.focal .card-image {
-                height: 200px;
+                height: 120px;
+            }
+
+            .card-content {
+                padding: 0.5rem;
+            }
+
+            .card.focal .card-content {
+                padding: 0.7rem;
+            }
+
+            .card-title {
+                font-size: 0.7rem;
+            }
+
+            .card.focal .card-title {
+                font-size: 0.9rem;
+            }
+
+            .card-description {
+                font-size: 0.55rem;
+            }
+
+            .card.focal .card-description {
+                font-size: 0.65rem;
             }
         }
     </style>
@@ -446,13 +496,17 @@
             <main>
                 <div class="cards-grid">
 		    <!-- Card 1 -->
-                    <a href="index_video.html" target="_blank" class="card">
+                    <div class="card">
                         <img src="JLS_1915.jpg" alt="Card 1" class="card-image">
                         <div class="card-content">
                             <h2 class="card-title">Fields of Sacrifice</h2>
-                            <p class="card-description">Watch our 10 min video with bespoke soundtrack</p>
+                            <p class="card-description">Real life or Still life. Our recommendation - Real life</p>
+                            <div class="card-buttons">
+                                <a href="index_video.html" target="_blank" rel="noopener noreferrer" class="card-btn">Video</a>
+                                <a href="index_photo.html" target="_blank" rel="noopener noreferrer" class="card-btn">Photo</a>
+                            </div>
                         </div>
-                    </a>
+                    </div>
 
                     <!-- Card 2 -->
                     <a href="index_map.html" target="_blank" class="card">
