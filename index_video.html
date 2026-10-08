@@ -86,13 +86,16 @@
             background-color: #000;
             border-radius: 4px;
             overflow: hidden;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
         }
 
-        .video-wrapper video {
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 4px;
+            height: 100%;
+            border: none;
         }
 
         .loading-spinner {
@@ -124,7 +127,11 @@
             .video-container p { font-size: 1rem; }
             .loading-spinner { width: 30px; height: 30px; }
             .video-wrapper { 
-                min-height: 350px;
+                min-height: auto !important;
+            }
+            
+            .video-wrapper iframe {
+                display: block !important;
             }
         }
 
@@ -152,11 +159,9 @@
 </header>
 
     
-        <h2><center><em>Through video by Tim Redman and music by Peter Ulrich, their spirit shines in the light</center></em></h2>
-        <div class="video-wrapper" style="padding-bottom: 50%;">
+        <h2 style="text-align: center;"><em>Through video by Tim Redman and music by Peter Ulrich, their spirit shines in the light</em></h2>
+        <div class="video-wrapper">
     <iframe src="https://player.vimeo.com/video/1233081809?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-        frameborder="0" 
         allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
         referrerpolicy="strict-origin-when-cross-origin" 
         title="JWR WW II Photos v2">
