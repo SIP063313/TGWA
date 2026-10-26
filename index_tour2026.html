@@ -1,0 +1,203 @@
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+
+    <title>Photo memories from 2026</title>
+
+    <style>
+
+        :root {
+            --primary-color: #003153;
+            --header-color: #555555;
+            --secondary-color: #F4A261;
+            --bg-color: #f9f7f1;
+            --text-color: #333;
+            --border-color: #ccc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 0;
+            padding: 10px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 5px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--primary-color);
+            overflow: visible;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 5px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            color: var(--header-color);
+            margin-bottom: 5px;
+            font-size: 2.5rem;
+        }
+
+        p.subtitle {
+         
+            font-style: italic;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .pdf-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 500px;
+            background-color: #f5f5f5;
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            margin: 5px 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .pdf-container h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .pdf-wrapper {
+            position: relative;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .pdf-wrapper iframe {
+            width: 100%;
+            height: 500px;
+            display: block;
+            border-radius: 4px;
+            border: none;
+        }
+
+        .mobile-pdf-note {
+            display: none;
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .mobile-pdf-note a {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Touch device detection — shows PDF fallback for all touch devices regardless of screen size or orientation */
+        @media (hover: none) and (pointer: coarse) {
+            .mobile-pdf-note { display: block; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container { padding: 5px; }
+            .pdf-container { padding: 15px; }
+            .pdf-wrapper iframe { height: 450px; }
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 5px; }
+            .container { padding: 5px; }
+            h1 { font-size: 1.8rem; }
+            .pdf-container { padding: 15px; min-height: 400px; }
+            .pdf-container h2 { font-size: 1.5rem; }
+            .pdf-container p { font-size: 1rem; }
+            .loading-spinner { width: 30px; height: 30px; }
+            .pdf-wrapper iframe { height: 400px; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 5px; }
+            .container { padding: 5px; }
+            .pdf-container { padding: 10px; min-height: 350px; }
+            .pdf-container h2 { font-size: 1.3rem; }
+            .loading-spinner { width: 30px; height: 30px; }
+            .pdf-wrapper iframe { height: 350px; }
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; border: none; width: 100%; max-width: 100%; }
+            .pdf-container { display: none; }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <header style="background-image: url('news.jpg'); background-size: 100% auto; background-position: center; background-repeat: no-repeat; min-height: 220px;">
+</header>
+
+    <div class="pdf-container">
+        <h2><em>A photo memory of the 2026 Tour</em></h2>
+
+        <!-- PDF viewer wrapper for responsive display -->
+        <div class="pdf-wrapper">
+            <iframe src="jls-tour-2026.pdf" type="application/pdf" title="Document Viewer">
+                Your browser does not support embedded PDFs.
+            </iframe>
+        </div>
+
+        <!-- Fallback message for touch/mobile devices where embedded PDF may not work -->
+        <div class="mobile-pdf-note">
+            <p>If the document does not display above, tap here to Open it:<br>
+            <a href="jls-tour-2026.pdf" target="_blank">Open JLS_2014_Project.pdf</a></p>
+        </div>
+
+        <p style="font-size: 0.8rem; margin-top: 20px; color: #888;"></p>
+    </div>
+
+    <footer style="margin-top: 15px; text-align: center; font-size: 0.9rem; color: #777;">
+
+        <p>--- by honour bound, by heritage kept, by heart remembered ---</p>
+
+    </footer>
+
+</div>
+
+</body>
+</html>
